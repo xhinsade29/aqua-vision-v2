@@ -389,7 +389,7 @@ $logoSrc = '/aqua-vision-v2/assets/logo.png?v=2';
       </div>
     </a>
 
-    <a href="Aqua-Vision-v2/apps/admin/reports.php"
+    <a href="/aqua-vision-v2/apps/admin/reports.php"
        class="av-nav-item <?= $currentPage === 'reports' ? 'active' : '' ?>"
        aria-current="<?= $currentPage === 'reports' ? 'page' : 'false' ?>">
       <div class="av-nav-icon" aria-hidden="true">
