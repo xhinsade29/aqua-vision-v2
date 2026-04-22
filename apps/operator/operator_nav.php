@@ -6,7 +6,7 @@
 $currentPage = $currentPage ?? 'operator-dashboard';
 
 // Simple absolute path to logo from document root
-$logoSrc = '/Aqua-Vision-v2/assets/logo.png?v=2';
+$logoSrc = '/mangima/assets/logo.png?v=2';
 ?>
 
 <style>
@@ -330,7 +330,7 @@ $logoSrc = '/Aqua-Vision-v2/assets/logo.png?v=2';
   <div class="av-nav-section">
     <div class="av-section-label" aria-hidden="true">Operations</div>
 
-    <a href="/Aqua-Vision/apps/operator/dashboard.php"
+    <a href="/mangima/apps/operator/dashboard.php"
        class="av-nav-item <?= $currentPage === 'operator-dashboard' ? 'active' : '' ?>"
        aria-current="<?= $currentPage === 'operator-dashboard' ? 'page' : 'false' ?>">
       <div class="av-nav-icon" aria-hidden="true">
@@ -347,7 +347,7 @@ $logoSrc = '/Aqua-Vision-v2/assets/logo.png?v=2';
       </div>
     </a>
 
-    <a href="/Aqua-Vision/apps/operator/devices.php"
+    <a href="/mangima/apps/operator/devices.php"
        class="av-nav-item <?= $currentPage === 'devices' ? 'active' : '' ?>"
        aria-current="<?= $currentPage === 'devices' ? 'page' : 'false' ?>">
       <div class="av-nav-icon" aria-hidden="true">
@@ -363,7 +363,7 @@ $logoSrc = '/Aqua-Vision-v2/assets/logo.png?v=2';
       </div>
     </a>
 
-    <a href="/Aqua-Vision/apps/operator/activitylog.php"
+    <a href="/mangima/apps/operator/activitylog.php"
        class="av-nav-item <?= $currentPage === 'activity' ? 'active' : '' ?>"
        aria-current="<?= $currentPage === 'activity' ? 'page' : 'false' ?>">
       <div class="av-nav-icon" aria-hidden="true">
@@ -382,7 +382,7 @@ $logoSrc = '/Aqua-Vision-v2/assets/logo.png?v=2';
   </div>
 
   <div class="av-user-footer">
-    <a href="/Aqua-Vision/logout.php" class="av-user-card" role="button" tabindex="0" aria-label="Logout" onclick="return confirm('Are you sure you want to logout?');">
+    <a href="/mangima/logout.php" class="av-user-card" role="button" tabindex="0" aria-label="Logout" onclick="return confirm('Are you sure you want to logout?');">
       <div class="av-avatar" aria-hidden="true"><?= strtoupper(substr($_SESSION['user_name'] ?? 'O', 0, 1)) ?></div>
       <div class="av-user-info">
         <div class="av-user-name"><?= htmlspecialchars($_SESSION['user_name'] ?? 'Operator') ?></div>
