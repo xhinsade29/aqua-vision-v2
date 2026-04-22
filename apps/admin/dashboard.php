@@ -379,6 +379,7 @@ $lastTs = !empty($logs) ? $logs[0]['recorded_at'] : null;
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <style>
@@ -988,9 +989,12 @@ function _e(s) {
 }
 
 // ── Chart ─────────────────────────────────────────────────────
+const now = new Date();
 const hours = Array.from({length:24},(_,i)=>{
-  const h=(new Date().getHours()-23+i+24)%24;
-  return String(h).padStart(2,'0')+':00';
+  const d = new Date(now);
+  d.setHours(d.getHours() - 23 + i);
+  d.setMinutes(0, 0, 0);
+  return d.toISOString();
 });
 let dbData = <?= json_encode($chartData, JSON_NUMERIC_CHECK) ?>;
 const allChartData = <?= json_encode($allChartData ?? [], JSON_NUMERIC_CHECK) ?>;
@@ -1026,7 +1030,7 @@ const chart = new Chart(document.getElementById('trendChart').getContext('2d'), 
       tooltip: {mode:'index',intersect:false,backgroundColor:'rgba(13,17,23,.92)',padding:10,cornerRadius:6}
     },
     scales: {
-      x: {grid:{color:'rgba(13,17,23,.04)'}, ticks:{font:{size:9},maxTicksLimit:8}},
+      x: {type:'time',time:{unit:'hour',displayFormats:{hour:'HH:mm'}},grid:{color:'rgba(13,17,23,.04)'},ticks:{font:{size:9},maxTicksLimit:8}},
       y: {type:'linear',display:true,position:'left',grid:{color:'rgba(13,17,23,.04)'},ticks:{font:{size:9}},title:{display:true,text:'Turbidity/Temp/DO/Level/Sediments',font:{size:9}}},
       y1: {type:'linear',display:true,position:'right',grid:{drawOnChartArea:false},ticks:{font:{size:9},color:'#3b82f6'},title:{display:true,text:'pH',font:{size:9}}}
     }
@@ -1098,7 +1102,7 @@ function createMetricChart(canvasId, metricKey, metricLabel, metricColor) {
         }
       },
       scales: {
-        x: { display: false },
+        x: { type: 'time', time: { unit: 'hour', displayFormats: { hour: 'HH:mm' } }, display: false },
         y: { 
           display: true,
           grid: { color: 'rgba(13,17,23,.04)' }, 
