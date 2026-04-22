@@ -1752,11 +1752,6 @@ include __DIR__ . '/../../assets/navigation.php';
             </div>
             
         <?php else: ?>
-            <!-- Debug info -->
-            <div style="background: #fef3c7; border: 1px solid #d97706; border-radius: 8px; padding: 1rem; margin-bottom: 1rem;">
-                <strong>Debug Info:</strong> Total devices in database: <?= $deviceCount ?>, Devices loaded: <?= count($devices) ?>
-            </div>
-            
             <!-- Combined Status with Condition Summary -->
             <div class="card" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); margin-bottom: 1.5rem;">
                 <div class="card-header" style="padding: 1rem;">
