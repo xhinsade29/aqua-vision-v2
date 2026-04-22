@@ -381,6 +381,24 @@ $logoSrc = '/aqua-vision-v2/assets/logo.png?v=2';
     <div class="av-nav-divider" role="separator"></div>
   </div>
 
+  <!-- ── Logout ────────────────────────────────────── -->
+  <div class="av-nav-section" style="margin-top: auto;">
+    <a href="/aqua-vision-v2/logout.php"
+       class="av-nav-item"
+       aria-label="Logout"
+       onclick="return confirm('Are you sure you want to logout?');">
+      <div class="av-nav-icon" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none">
+          <path d="M6 3H3v10h3" stroke="#dc2626" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M11.5 8H6M9 5.5L11.5 8L9 10.5" stroke="#dc2626" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="av-nav-label-wrap">
+        <div class="av-nav-label" style="color: #dc2626;">Logout</div>
+      </div>
+    </a>
+  </div>
+
   <div class="av-user-footer">
     <a href="/aqua-vision-v2/logout.php" class="av-user-card" role="button" tabindex="0" aria-label="Logout" onclick="return confirm('Are you sure you want to logout?');">
       <div class="av-avatar" aria-hidden="true"><?= strtoupper(substr($_SESSION['user_name'] ?? 'O', 0, 1)) ?></div>
