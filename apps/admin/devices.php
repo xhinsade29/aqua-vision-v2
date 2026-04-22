@@ -258,6 +258,25 @@ include __DIR__ . '/../../assets/navigation.php';
         .stagger-4 { animation-delay: 0.2s; }
         .stagger-5 { animation-delay: 0.25s; }
         
+        /* Legend items animation */
+        .legend-item {
+            transition: transform 0.2s ease, background 0.2s ease;
+            padding: 0.15rem 0.3rem;
+            border-radius: 4px;
+        }
+        
+        .legend-item:hover {
+            transform: translateX(4px);
+            background: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Map marker pulse */
+        @keyframes markerPulse {
+            0% { box-shadow: 0 0 0 0 rgba(26, 86, 219, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(26, 86, 219, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(26, 86, 219, 0); }
+        }
+        
         /* Header */
         .header {
             display: flex;
@@ -1819,39 +1838,39 @@ include __DIR__ . '/../../assets/navigation.php';
                             </button>
                         </div>
                     </div>
-                    <div id="deviceMapContainer" style="padding: 1.25rem;">
+                    <div id="deviceMapContainer" style="padding: 1.25rem;" class="scale-in">
                         <div id="devices-overview-map" style="height: 500px; border-radius: var(--radius); border: 1px solid var(--gray-200);"></div>
-                        <div style="margin-top: 0.75rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px;">
+                        <div style="margin-top: 0.75rem; padding: 0.75rem; background: #f8fafc; border-radius: 8px;" class="fade-in stagger-2">
                             <div style="font-size: 0.75rem; font-weight: 600; color: var(--gray-600); margin-bottom: 0.5rem;">📊 Legend</div>
                             <div style="display: flex; flex-wrap: wrap; gap: 0.75rem; font-size: 0.7rem; color: var(--gray-500);">
                                 <!-- Status Colors (when condition is normal) -->
-                                <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #059669;"></span>
+                                <div style="display: flex; align-items: center; gap: 0.25rem;" class="legend-item">
+                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #059669; animation: pulse 2s infinite;"></span>
                                     <span>Active</span>
                                 </div>
-                                <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #3b82f6;"></span>
+                                <div style="display: flex; align-items: center; gap: 0.25rem;" class="legend-item">
+                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #3b82f6; animation: pulse 2s infinite 0.2s;"></span>
                                     <span>Maintenance</span>
                                 </div>
-                                <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #dc2626;"></span>
+                                <div style="display: flex; align-items: center; gap: 0.25rem;" class="legend-item">
+                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #dc2626; animation: pulse 2s infinite 0.4s;"></span>
                                     <span>Inactive</span>
                                 </div>
-                                <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #6b7280;"></span>
+                                <div style="display: flex; align-items: center; gap: 0.25rem;" class="legend-item">
+                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #6b7280; animation: pulse 2s infinite 0.6s;"></span>
                                     <span>Offline</span>
                                 </div>
                                 <!-- Condition Colors (priority) -->
-                                <div style="display: flex; align-items: center; gap: 0.25rem; margin-left: 0.5rem; border-left: 1px solid var(--gray-300); padding-left: 0.5rem;">
-                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #7c3aed;"></span>
+                                <div style="display: flex; align-items: center; gap: 0.25rem; margin-left: 0.5rem; border-left: 1px solid var(--gray-300); padding-left: 0.5rem;" class="legend-item">
+                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #7c3aed; animation: pulse 2s infinite 0.8s;"></span>
                                     <span>⚠️ Displaced</span>
                                 </div>
-                                <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #1f2937;"></span>
+                                <div style="display: flex; align-items: center; gap: 0.25rem;" class="legend-item">
+                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #1f2937; animation: pulse 2s infinite 1s;"></span>
                                     <span>⚠️ Damaged</span>
                                 </div>
-                                <div style="display: flex; align-items: center; gap: 0.25rem;">
-                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #d97706;"></span>
+                                <div style="display: flex; align-items: center; gap: 0.25rem;" class="legend-item">
+                                    <span style="width: 10px; height: 10px; border-radius: 50%; background: #d97706; animation: pulse 2s infinite 1.2s;"></span>
                                     <span>⚠️ Malfunctioning</span>
                                 </div>
                             </div>
