@@ -8,7 +8,7 @@
 $currentPage = $currentPage ?? 'overview';
 
 // Simple absolute path to logo from document root
-$logoSrc = '/mangima/assets/logo.png?v=2';
+$logoSrc = '/Aqua-Vision-v2/assets/logo.png?v=2';
 ?>
 
 <style>
@@ -357,7 +357,7 @@ $logoSrc = '/mangima/assets/logo.png?v=2';
   <div class="av-nav-section">
     <div class="av-section-label" aria-hidden="true">Monitor</div>
 
-    <a href="/mangima/apps/admin/dashboard.php"
+    <a href="/Aqua-Vision/apps/admin/dashboard.php"
        class="av-nav-item <?= $currentPage === 'overview' ? 'active' : '' ?>"
        aria-current="<?= $currentPage === 'overview' ? 'page' : 'false' ?>">
       <div class="av-nav-icon" aria-hidden="true">
@@ -374,7 +374,7 @@ $logoSrc = '/mangima/assets/logo.png?v=2';
       </div>
     </a>
 
-    <a href="/mangima/apps/admin/activitylog.php"
+    <a href="/Aqua-Vision/apps/admin/activitylog.php"
        class="av-nav-item <?= $currentPage === 'history' ? 'active' : '' ?>"
        aria-current="<?= $currentPage === 'history' ? 'page' : 'false' ?>">
       <div class="av-nav-icon" aria-hidden="true">
@@ -389,7 +389,7 @@ $logoSrc = '/mangima/assets/logo.png?v=2';
       </div>
     </a>
 
-    <a href="/mangima/apps/admin/reports.php"
+    <a href="/Aqua-Vision/apps/admin/reports.php"
        class="av-nav-item <?= $currentPage === 'reports' ? 'active' : '' ?>"
        aria-current="<?= $currentPage === 'reports' ? 'page' : 'false' ?>">
       <div class="av-nav-icon" aria-hidden="true">
@@ -411,7 +411,7 @@ $logoSrc = '/mangima/assets/logo.png?v=2';
     <!-- ── Infrastructure Group ──────────────────────── -->
     <div class="av-section-label" aria-hidden="true">Infrastructure</div>
 
-    <a href="/mangima/apps/admin/devices.php"
+    <a href="/Aqua-Vision/apps/admin/devices.php"
        class="av-nav-item <?= $currentPage === 'devices' ? 'active' : '' ?>"
        aria-current="<?= $currentPage === 'devices' ? 'page' : 'false' ?>">
       <div class="av-nav-icon" aria-hidden="true">
@@ -432,7 +432,7 @@ $logoSrc = '/mangima/assets/logo.png?v=2';
   <div class="av-admin-section">
     <div class="av-admin-label" aria-hidden="true">Admin</div>
 
-    <a href="/mangima/apps/admin/users.php"
+    <a href="/Aqua-Vision/apps/admin/users.php"
        class="av-nav-item <?= $currentPage === 'users' ? 'active' : '' ?>"
        aria-current="<?= $currentPage === 'users' ? 'page' : 'false' ?>">
       <div class="av-nav-icon" aria-hidden="true">
@@ -451,7 +451,7 @@ $logoSrc = '/mangima/assets/logo.png?v=2';
 
   <!-- ── User Footer ───────────────────────────────── -->
   <div class="av-user-footer">
-    <a href="/mangima/logout.php" class="av-user-card" role="button" tabindex="0" aria-label="Logout" onclick="return confirm('Are you sure you want to logout?');">
+    <a href="/Aqua-Vision/logout.php" class="av-user-card" role="button" tabindex="0" aria-label="Logout" onclick="return confirm('Are you sure you want to logout?');">
       <div class="av-avatar" aria-hidden="true"><?= strtoupper(substr($_SESSION['user_name'] ?? 'U', 0, 1)) ?></div>
       <div class="av-user-info">
         <div class="av-user-name"><?= htmlspecialchars($_SESSION['user_name'] ?? 'User') ?></div>
