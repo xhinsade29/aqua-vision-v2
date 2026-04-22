@@ -5,10 +5,10 @@
  */
 
 // Database connection settings
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
-define('DB_NAME', 'mangina_watershed');
+define('DB_HOST', 'auth-db1981.hstgr.io');
+define('DB_USER', 'u442411629_dev_mangima');
+define('DB_PASS', 'Sk%S4af2$43\\');
+define('DB_NAME', 'u442411629_mangima');
 
 // Create database connection
 $conn = new mysqli(DB_HOST, DB_USER, DB_PASS);
