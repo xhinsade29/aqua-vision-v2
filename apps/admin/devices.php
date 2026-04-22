@@ -215,6 +215,49 @@ include __DIR__ . '/../../assets/navigation.php';
             padding: 1.5rem;
         }
         
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(20px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        
+        .fade-in-left {
+            animation: fadeInLeft 0.4s ease-out forwards;
+        }
+        
+        .fade-in-right {
+            animation: fadeInRight 0.4s ease-out forwards;
+        }
+        
+        .scale-in {
+            animation: scaleIn 0.3s ease-out forwards;
+        }
+        
+        .stagger-1 { animation-delay: 0.05s; }
+        .stagger-2 { animation-delay: 0.1s; }
+        .stagger-3 { animation-delay: 0.15s; }
+        .stagger-4 { animation-delay: 0.2s; }
+        .stagger-5 { animation-delay: 0.25s; }
+        
         /* Header */
         .header {
             display: flex;
@@ -225,6 +268,12 @@ include __DIR__ . '/../../assets/navigation.php';
             padding: 1rem 1.5rem;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
+            animation: fadeInDown 0.5s ease-out;
+        }
+        
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .header h1 {
@@ -324,7 +373,24 @@ include __DIR__ . '/../../assets/navigation.php';
         
         .data-table tr:hover {
             background: var(--gray-50);
+            transition: background 0.2s, transform 0.2s;
+            transform: translateX(4px);
         }
+        
+        .data-table tbody tr {
+            animation: fadeIn 0.3s ease-out forwards;
+        }
+        
+        .data-table tbody tr:nth-child(1) { animation-delay: 0.02s; }
+        .data-table tbody tr:nth-child(2) { animation-delay: 0.04s; }
+        .data-table tbody tr:nth-child(3) { animation-delay: 0.06s; }
+        .data-table tbody tr:nth-child(4) { animation-delay: 0.08s; }
+        .data-table tbody tr:nth-child(5) { animation-delay: 0.10s; }
+        .data-table tbody tr:nth-child(6) { animation-delay: 0.12s; }
+        .data-table tbody tr:nth-child(7) { animation-delay: 0.14s; }
+        .data-table tbody tr:nth-child(8) { animation-delay: 0.16s; }
+        .data-table tbody tr:nth-child(9) { animation-delay: 0.18s; }
+        .data-table tbody tr:nth-child(10) { animation-delay: 0.20s; }
         
         /* Badges */
         .badge {
@@ -507,7 +573,7 @@ include __DIR__ . '/../../assets/navigation.php';
         
         <?php if ($action === 'add'): ?>
             <!-- Add Device Form -->
-            <div class="card">
+            <div class="card fade-in stagger-1">
                 <div class="card-header">
                     <h3>Add New Device</h3>
                 </div>
@@ -803,7 +869,7 @@ include __DIR__ . '/../../assets/navigation.php';
             
         <?php elseif ($action === 'edit'): ?>
             <!-- Edit Device Form with Map -->
-            <div class="card">
+            <div class="card fade-in stagger-1">
                 <div class="card-header">
                     <h3>Edit Device</h3>
                 </div>
@@ -874,7 +940,7 @@ include __DIR__ . '/../../assets/navigation.php';
                         </form>
                         
                         <!-- Device Info Panel -->
-                        <div class="card" style="margin: 0;">
+                        <div class="card scale-in stagger-2" style="margin: 0;">
                             <div class="card-header" style="padding: 0.75rem 1rem;">
                                 <h3 style="font-size: 0.875rem; margin: 0;">📊 Device Information</h3>
                             </div>
@@ -1562,7 +1628,7 @@ include __DIR__ . '/../../assets/navigation.php';
             
         <?php elseif ($action === 'edit_location' && $location): ?>
             <!-- Edit Location Form -->
-            <div class="card">
+            <div class="card fade-in stagger-1">
                 <div class="card-header">
                     <h3>Edit Location: <?= htmlspecialchars($location['location_name']) ?></h3>
                 </div>
@@ -1693,7 +1759,7 @@ include __DIR__ . '/../../assets/navigation.php';
             
         <?php else: ?>
             <!-- Combined Status with Condition Summary -->
-            <div class="card" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); margin-bottom: 1.5rem;">
+            <div class="card fade-in" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); margin-bottom: 1.5rem;">
                 <div class="card-header" style="padding: 1rem;">
                     <h4 style="font-size: 0.875rem; color: var(--gray-600); margin: 0;">📊 Devices by Status with Condition</h4>
                 </div>
@@ -1743,7 +1809,7 @@ include __DIR__ . '/../../assets/navigation.php';
             <!-- Device Management with Map and Details -->
             <div style="display: grid; grid-template-columns: 1fr 400px; gap: 1.5rem;">
                 <!-- Device Map Overview -->
-                <div class="card">
+                <div class="card fade-in-left stagger-1">
                     <div class="card-header">
                         <h3>📍 Device Locations Overview</h3>
                         <div style="display: flex; gap: 0.5rem; align-items: center;">
@@ -1797,7 +1863,7 @@ include __DIR__ . '/../../assets/navigation.php';
                 </div>
                 
                 <!-- Device Details Panel -->
-                <div class="card" style="margin: 0;">
+                <div class="card fade-in-right stagger-2" style="margin: 0;">
                     <div class="card-header">
                         <h3 style="font-size: 1rem;">📋 Device Details</h3>
                     </div>
@@ -1936,7 +2002,7 @@ include __DIR__ . '/../../assets/navigation.php';
             ?>
             
             <!-- Device Management with Map and Details -->
-            <div class="card">
+            <div class="card fade-in">
                 <div class="card-header" style="flex-direction: column; align-items: stretch; gap: 1rem;">
                     <div style="display: flex; justify-content: space-between; align-items: center;">
                         <h3>📡 All Monitoring Devices</h3>
