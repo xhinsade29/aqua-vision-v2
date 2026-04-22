@@ -18,16 +18,16 @@ session_start();
 
 // ── Admin Access Control ──────────────────────────────────────────────────────
 if (!isset($_SESSION['user_id'])) {
-    header('Location: /Aqua-Vision/login.php');
+    header('Location: /aqua-vision-v2/login.php');
     exit;
 }
 
 if ($_SESSION['user_role'] !== 'admin') {
     $_SESSION['error'] = 'Access denied. Admin privileges required.';
     if ($_SESSION['user_role'] === 'researcher') {
-        header('Location: /Aqua-Vision/apps/researcher/dashboard.php');
+        header('Location: /aqua-vision-v2/apps/researcher/dashboard.php');
     } else {
-        header('Location: /Aqua-Vision/login.php');
+        header('Location: /aqua-vision-v2/login.php');
     }
     exit;
 }
