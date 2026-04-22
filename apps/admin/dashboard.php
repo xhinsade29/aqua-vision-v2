@@ -708,7 +708,6 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:10
     <div class="card-head-l">
       <span class="card-title">Overall Water Conditions Summary</span>
       <select id="pieDeviceSelector" class="sel" onchange="updateConditionPieChart(); updateOverallSensorStatus();" style="margin-left:12px">
-        <option value="">All Devices</option>
         <?php foreach ($devices as $dev): ?>
           <option value="<?= $dev['device_id'] ?>"><?= htmlspecialchars($dev['device_name']) ?> (<?= ucfirst($dev['river_section']??'') ?>)</option>
         <?php endforeach; ?>
