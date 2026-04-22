@@ -381,6 +381,21 @@ $logoSrc = '/aqua-vision-v2/assets/logo.png?v=2';
     <div class="av-nav-divider" role="separator"></div>
   </div>
 
+  <div class="av-user-footer">
+    <a href="/aqua-vision-v2/logout.php" class="av-user-card" role="button" tabindex="0" aria-label="Logout" onclick="return confirm('Are you sure you want to logout?');">
+      <div class="av-avatar" aria-hidden="true"><?= strtoupper(substr($_SESSION['user_name'] ?? 'O', 0, 1)) ?></div>
+      <div class="av-user-info">
+        <div class="av-user-name"><?= htmlspecialchars($_SESSION['user_name'] ?? 'Operator') ?></div>
+        <div class="av-user-role"><?= ucfirst($_SESSION['user_role'] ?? 'Operator') ?></div>
+      </div>
+      <div class="av-user-menu-btn" aria-hidden="true">
+        <div class="av-dot"></div>
+        <div class="av-dot"></div>
+        <div class="av-dot"></div>
+      </div>
+    </a>
+  </div>
+
   <!-- ── Logout ────────────────────────────────────── -->
   <div class="av-nav-section" style="margin-top: auto;">
     <a href="/aqua-vision-v2/logout.php"
@@ -399,20 +414,6 @@ $logoSrc = '/aqua-vision-v2/assets/logo.png?v=2';
     </a>
   </div>
 
-  <div class="av-user-footer">
-    <a href="/aqua-vision-v2/logout.php" class="av-user-card" role="button" tabindex="0" aria-label="Logout" onclick="return confirm('Are you sure you want to logout?');">
-      <div class="av-avatar" aria-hidden="true"><?= strtoupper(substr($_SESSION['user_name'] ?? 'O', 0, 1)) ?></div>
-      <div class="av-user-info">
-        <div class="av-user-name"><?= htmlspecialchars($_SESSION['user_name'] ?? 'Operator') ?></div>
-        <div class="av-user-role"><?= ucfirst($_SESSION['user_role'] ?? 'Operator') ?></div>
-      </div>
-      <div class="av-user-menu-btn" aria-hidden="true">
-        <div class="av-dot"></div>
-        <div class="av-dot"></div>
-        <div class="av-dot"></div>
-      </div>
-    </a>
-  </div>
 </nav>
 
 <!-- Toast Notifications -->
