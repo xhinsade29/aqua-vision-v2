@@ -554,9 +554,6 @@ body{font-family:var(--sans);background:var(--bg);color:var(--ink);min-height:10
   <div class="topbar-right">
     <div class="ts-line" id="clock">Connecting…</div>
     <span id="syncInd">⟳</span>
-    <a href="../../database/export.php" class="btn btn-outline">↓ Export</a>
-    <button class="btn btn-outline" onclick="syncNow()">⟳ Refresh</button>
-    <button class="btn btn-primary" onclick="location.reload()">↺ Reload</button>
   </div>
 </div>
 
